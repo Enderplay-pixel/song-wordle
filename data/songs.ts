@@ -1348,6 +1348,24 @@ export const songs: Song[] = [
     searchTerms: ["pool song 2.0", "pool song", "leif", "julien bam", "julian bam"],
   },
 
+  // ── FREI.WILD ─────────────────────────────────────────────────────────────
+  { id: "fw-wahre-werte", title: "Wahre Werte", artist: "Frei.Wild", youtubeId: "Ki_D9JjmdzE", startOffset: 0, searchTerms: ["wahre werte", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-suedtirol", title: "Südtirol", artist: "Frei.Wild", youtubeId: "GSFpDPnKWMU", startOffset: 0, searchTerms: ["südtirol", "suedtirol", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-untergang", title: "Wir reiten in den Untergang", artist: "Frei.Wild", youtubeId: "Nigcmj02Vo8", startOffset: 0, searchTerms: ["wir reiten in den untergang", "untergang", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-schnauze", title: "Halt deine Schnauze", artist: "Frei.Wild", youtubeId: "yP6JFclm4Hg", startOffset: 0, searchTerms: ["halt deine schnauze", "schnauze", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-keine-luege", title: "Keine Lüge reicht je bis zur Wahrheit", artist: "Frei.Wild", youtubeId: "6S4vUiGw_XM", startOffset: 0, searchTerms: ["keine lüge reicht je bis zur wahrheit", "keine lüge", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-hab-keine-angst", title: "Hab keine Angst", artist: "Frei.Wild", youtubeId: "jKZ_t3oaI1U", startOffset: 0, searchTerms: ["hab keine angst", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-deutschland", title: "Wir schaffen Deutsch.Land", artist: "Frei.Wild", youtubeId: "pXG7Jg-Hjb8", startOffset: 0, searchTerms: ["wir schaffen deutsch.land", "deutschland", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-nie-wieder", title: "Nie wieder", artist: "Frei.Wild", youtubeId: "3Ps5OZswUzk", startOffset: 0, searchTerms: ["nie wieder", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-auf-alles", title: "Auf alles was war", artist: "Frei.Wild", youtubeId: "mkTliFEBG1Y", startOffset: 0, searchTerms: ["auf alles was war", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-im-arsch", title: "Wirklich so im Arsch", artist: "Frei.Wild", youtubeId: "T7NnfZ6aB7M", startOffset: 0, searchTerms: ["wirklich so im arsch", "im arsch", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-gutmenschen", title: "Gutmenschen und Moralapostel", artist: "Frei.Wild", youtubeId: "CB8bAb1UJp8", startOffset: 0, searchTerms: ["gutmenschen und moralapostel", "gutmenschen", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-krieg", title: "Krieg ohne Sieger", artist: "Frei.Wild", youtubeId: "jV1guyIJphs", startOffset: 0, searchTerms: ["krieg ohne sieger", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-allein-nach-vorne", title: "Allein nach vorne", artist: "Frei.Wild", youtubeId: "CYxrCtFlXEA", startOffset: 0, searchTerms: ["allein nach vorne", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-wenn-alles-bricht", title: "Wenn alles bricht", artist: "Frei.Wild", youtubeId: "NmGfKagAZp0", startOffset: 0, searchTerms: ["wenn alles bricht", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-scheisse", title: "Scheisse für die Welt", artist: "Frei.Wild", youtubeId: "CLvgTGMX72U", startOffset: 0, searchTerms: ["scheisse für die welt", "scheiße für die welt", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-oben-befiehlt", title: "Oben befiehlt, unten folgt", artist: "Frei.Wild", youtubeId: "OKfiiejf5-c", startOffset: 0, searchTerms: ["oben befiehlt unten folgt", "frei.wild", "frei wild", "freiwild"] },
+
   // ── CHARTS ────────────────────────────────────────────────────────────────
   {
     id: "billie-jean",

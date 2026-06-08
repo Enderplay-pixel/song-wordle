@@ -30,6 +30,9 @@ const BAND_ICONS: Record<string, string> = {
   "Julien Bam": "🎭",
   "Charts": "📈",
   "DÄ - aber richtig": "💎",
+  "Frei.Wild": "🏔️",
+  "Pop 2000-2019": "🎧",
+  "Schlager": "🍻",
 };
 
 export default function BandFilter({ selected, onChange, onClose }: BandFilterProps) {
