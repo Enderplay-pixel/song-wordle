@@ -1365,6 +1365,14 @@ export const songs: Song[] = [
   { id: "fw-wenn-alles-bricht", title: "Wenn alles bricht", artist: "Frei.Wild", youtubeId: "NmGfKagAZp0", startOffset: 0, searchTerms: ["wenn alles bricht", "frei.wild", "frei wild", "freiwild"] },
   { id: "fw-scheisse", title: "Scheisse für die Welt", artist: "Frei.Wild", youtubeId: "CLvgTGMX72U", startOffset: 0, searchTerms: ["scheisse für die welt", "scheiße für die welt", "frei.wild", "frei wild", "freiwild"] },
   { id: "fw-oben-befiehlt", title: "Oben befiehlt, unten folgt", artist: "Frei.Wild", youtubeId: "OKfiiejf5-c", startOffset: 0, searchTerms: ["oben befiehlt unten folgt", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-vollidioten", title: "Das Land der Vollidioten", artist: "Frei.Wild", youtubeId: "3MS9z90LmFs", startOffset: 0, searchTerms: ["das land der vollidioten", "vollidioten", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-wieder-da", title: "Und ich war wieder da", artist: "Frei.Wild", youtubeId: "e2Jb7jnkGTA", startOffset: 0, searchTerms: ["und ich war wieder da", "wieder da", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-altes-neues-leben", title: "Altes, neues Leben", artist: "Frei.Wild", youtubeId: "ThDH8EZ7_n0", startOffset: 0, searchTerms: ["altes neues leben", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-nicht-dein-tag", title: "Nicht dein Tag", artist: "Frei.Wild", youtubeId: "B09sMT7zswE", startOffset: 0, searchTerms: ["nicht dein tag", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-seelen", title: "Wir brechen eure Seelen", artist: "Frei.Wild", youtubeId: "ekOnqS7_-_k", startOffset: 0, searchTerms: ["wir brechen eure seelen", "seelen", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-wahnsinn-liebe", title: "Es ist Wahnsinn, es ist Liebe", artist: "Frei.Wild", youtubeId: "EsBa_QE14RE", startOffset: 0, searchTerms: ["es ist wahnsinn es ist liebe", "wahnsinn liebe", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-immer-unter-feuer", title: "Immer unter Feuer", artist: "Frei.Wild", youtubeId: "U5srASoK53Y", startOffset: 0, searchTerms: ["immer unter feuer", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-untrennbar", title: "Für immer untrennbar", artist: "Frei.Wild", youtubeId: "IqJo2donfMA", startOffset: 0, searchTerms: ["für immer untrennbar", "untrennbar", "frei.wild", "frei wild", "freiwild"] },
 
   // ── CHARTS ────────────────────────────────────────────────────────────────
   {
