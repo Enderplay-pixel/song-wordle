@@ -823,6 +823,22 @@ export const songs: Song[] = [
     startOffset: 0,
     searchTerms: ["engel", "rammstein"],
   },
+  {
+    id: "auslaender",
+    title: "Ausländer",
+    artist: "Rammstein",
+    youtubeId: "3eEA6H_y1VI",
+    startOffset: 0,
+    searchTerms: ["ausländer", "auslaender", "rammstein"],
+  },
+  {
+    id: "radio",
+    title: "Radio",
+    artist: "Rammstein",
+    youtubeId: "xR1cVBlFXIw",
+    startOffset: 0,
+    searchTerms: ["radio", "rammstein"],
+  },
 
   // ── METALLICA ──────────────────────────────────────────────────────────────
   {
