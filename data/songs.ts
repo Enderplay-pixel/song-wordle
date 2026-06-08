@@ -1373,6 +1373,15 @@ export const songs: Song[] = [
   { id: "fw-wahnsinn-liebe", title: "Es ist Wahnsinn, es ist Liebe", artist: "Frei.Wild", youtubeId: "EsBa_QE14RE", startOffset: 0, searchTerms: ["es ist wahnsinn es ist liebe", "wahnsinn liebe", "frei.wild", "frei wild", "freiwild"] },
   { id: "fw-immer-unter-feuer", title: "Immer unter Feuer", artist: "Frei.Wild", youtubeId: "U5srASoK53Y", startOffset: 0, searchTerms: ["immer unter feuer", "frei.wild", "frei wild", "freiwild"] },
   { id: "fw-untrennbar", title: "Für immer untrennbar", artist: "Frei.Wild", youtubeId: "IqJo2donfMA", startOffset: 0, searchTerms: ["für immer untrennbar", "untrennbar", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-alles-ist-weg", title: "Alles ist weg", artist: "Frei.Wild", youtubeId: "qsx7KLdzlaM", startOffset: 0, searchTerms: ["alles ist weg", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-truemmern", title: "Wenn alles in Trümmern liegt", artist: "Frei.Wild", youtubeId: "Bmki1MRNigY", startOffset: 0, searchTerms: ["wenn alles in trümmern liegt", "trümmern", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-gott-und-wir", title: "Gott und wir selbst", artist: "Frei.Wild", youtubeId: "LaU7NTsvmWI", startOffset: 0, searchTerms: ["gott und wir selbst", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-halbstark", title: "Halbstark, laut und jung", artist: "Frei.Wild", youtubeId: "rmeCGK-CRFM", startOffset: 0, searchTerms: ["halbstark laut und jung", "halbstark", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-bringen-alle-um", title: "Wir bringen alle um", artist: "Frei.Wild", youtubeId: "vbw79SOyUzQ", startOffset: 0, searchTerms: ["wir bringen alle um", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-platt", title: "Macht euch endlich alle platt", artist: "Frei.Wild", youtubeId: "Omk9zbPtWjk", startOffset: 0, searchTerms: ["macht euch endlich alle platt", "platt", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-feinde", title: "Feinde deiner Feinde", artist: "Frei.Wild", youtubeId: "Tb2upmuGNk8", startOffset: 0, searchTerms: ["feinde deiner feinde", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-weiter", title: "Weiter, immer weiter", artist: "Frei.Wild", youtubeId: "Vx5YXks2TzU", startOffset: 0, searchTerms: ["weiter immer weiter", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-corona", title: "Corona Weltuntergang v2", artist: "Frei.Wild", youtubeId: "h2dVuejfbyQ", startOffset: 0, searchTerms: ["corona weltuntergang", "frei.wild", "frei wild", "freiwild"] },
 
   // ── CHARTS ────────────────────────────────────────────────────────────────
   {
