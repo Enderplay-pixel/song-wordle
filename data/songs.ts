@@ -1382,6 +1382,11 @@ export const songs: Song[] = [
   { id: "fw-feinde", title: "Feinde deiner Feinde", artist: "Frei.Wild", youtubeId: "Tb2upmuGNk8", startOffset: 0, searchTerms: ["feinde deiner feinde", "frei.wild", "frei wild", "freiwild"] },
   { id: "fw-weiter", title: "Weiter, immer weiter", artist: "Frei.Wild", youtubeId: "Vx5YXks2TzU", startOffset: 0, searchTerms: ["weiter immer weiter", "frei.wild", "frei wild", "freiwild"] },
   { id: "fw-corona", title: "Corona Weltuntergang v2", artist: "Frei.Wild", youtubeId: "h2dVuejfbyQ", startOffset: 0, searchTerms: ["corona weltuntergang", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-grosse-eier", title: "Zeig große Eier und ihnen den Arsch", artist: "Frei.Wild", youtubeId: "vdWYf4A60zs", startOffset: 0, searchTerms: ["zeig große eier und ihnen den arsch", "große eier", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-nur-gott", title: "Nur Gott richtet mich", artist: "Frei.Wild", youtubeId: "0ZTa3EuoyFk", startOffset: 0, searchTerms: ["nur gott richtet mich", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-verarscht", title: "Weil du mich nur verarscht hast", artist: "Frei.Wild", youtubeId: "vQXn3EzzYY4", startOffset: 0, searchTerms: ["weil du mich nur verarscht hast", "verarscht", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-antiwillkommen", title: "Antiwillkommen", artist: "Frei.Wild", youtubeId: "K3kcDJBkbg8", startOffset: 0, searchTerms: ["antiwillkommen", "frei.wild", "frei wild", "freiwild"] },
+  { id: "fw-freigeist", title: "Hier rein da raus Freigeist", artist: "Frei.Wild", youtubeId: "E8_9DCv52UQ", startOffset: 0, searchTerms: ["hier rein da raus freigeist", "freigeist", "frei.wild", "frei wild", "freiwild"] },
 
   // ── CHARTS ────────────────────────────────────────────────────────────────
   {
