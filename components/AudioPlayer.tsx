@@ -38,8 +38,10 @@ export default function AudioPlayer({
   const hostRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<any>(null);
   const createdRef = useRef(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);   // snippet cutoff
+  const safetyRef = useRef<ReturnType<typeof setTimeout> | null>(null);  // fallback if PLAYING never fires
+  const pendingRef = useRef(false); // a play was requested, waiting for PLAYING to arm cutoff
+  const armedRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -49,9 +51,22 @@ export default function AudioPlayer({
   const isLost = isFull; // keep internal naming: no cutoff when full
   const snippetDuration = isFull ? 999 : duration;
 
+  // YouTube's audio output pipeline has ~250-350ms latency: when we pause the
+  // player, audio still buffered in the pipeline never reaches the speakers.
+  // For tiny snippets (0.1s) that means SILENCE. We compensate by measuring the
+  // snippet from the moment playback ACTUALLY starts (onStateChange=PLAYING) via
+  // wall-clock + a latency offset, so the intended snippet is genuinely audible.
+  const AUDIO_LATENCY_MS = 320;
+
+  // Live refs so the once-bound onStateChange handler reads current values
+  const snippetDurationRef = useRef(snippetDuration);
+  const isFullRef = useRef(isFull);
+  snippetDurationRef.current = snippetDuration;
+  isFullRef.current = isFull;
+
   const clearTimers = () => {
     if (timerRef.current) { clearTimeout(timerRef.current); timerRef.current = null; }
-    if (pollRef.current) { clearInterval(pollRef.current); pollRef.current = null; }
+    if (safetyRef.current) { clearTimeout(safetyRef.current); safetyRef.current = null; }
   };
 
   // Create the YT player exactly once. Guarded against React StrictMode's
@@ -86,6 +101,20 @@ export default function AudioPlayer({
         },
         events: {
           onReady: () => setReady(true),
+          onStateChange: (e: { data: number }) => {
+            // 1 === YT.PlayerState.PLAYING — audio is actually starting now
+            if (e.data !== 1) return;
+            if (!pendingRef.current || armedRef.current) return;
+            pendingRef.current = false;
+            armedRef.current = true;
+            if (isFullRef.current) return; // full preview: no cutoff
+            if (timerRef.current) clearTimeout(timerRef.current);
+            // Wall-clock from real playback start + latency comp → audible snippet
+            timerRef.current = setTimeout(() => {
+              try { playerRef.current?.pauseVideo(); } catch {}
+              setIsPlaying(false);
+            }, snippetDurationRef.current * 1000 + AUDIO_LATENCY_MS);
+          },
         },
       });
     });
@@ -115,7 +144,9 @@ export default function AudioPlayer({
     const p = playerRef.current;
     clearTimers();
 
-    const limit = startOffset + snippetDuration; // seconds
+    // Cutoff arms when onStateChange fires PLAYING (real audio start)
+    armedRef.current = false;
+    pendingRef.current = true;
 
     p.seekTo(startOffset, true);
     p.playVideo();
@@ -123,31 +154,19 @@ export default function AudioPlayer({
 
     if (isLost) return; // full preview, no cutoff
 
-    // Poll the REAL playhead (getCurrentTime is synchronous in the YT API).
-    // Position only advances once audio truly plays, so buffering latency is
-    // absorbed — the snippet is measured in actually-played seconds.
-    pollRef.current = setInterval(() => {
-      try {
-        const t = p.getCurrentTime(); // seconds
-        if (t >= limit) {
-          p.pauseVideo();
-          setIsPlaying(false);
-          clearTimers();
-        }
-      } catch {}
-    }, 20);
-
-    // Safety net in case playback stalls
-    timerRef.current = setTimeout(() => {
+    // Safety net: if PLAYING never fires (rare), still stop after a generous wait
+    safetyRef.current = setTimeout(() => {
       try { p.pauseVideo(); } catch {}
       setIsPlaying(false);
-      clearTimers();
-    }, snippetDuration * 1000 + 8000);
+      pendingRef.current = false;
+    }, snippetDuration * 1000 + 6000);
   }, [disabled, ready, startOffset, snippetDuration, isLost]);
 
   const handleStop = useCallback(() => {
     try { playerRef.current?.pauseVideo(); } catch {}
     setIsPlaying(false);
+    pendingRef.current = false;
+    armedRef.current = false;
     clearTimers();
   }, []);
 
