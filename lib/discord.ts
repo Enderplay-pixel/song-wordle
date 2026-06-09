@@ -18,10 +18,12 @@ const STORAGE_KEY = "songWordle_discordUser";
 
 function redirectUri(): string {
   // Must exactly match a redirect registered in the Discord app
+  if (typeof window === "undefined") return "";
   return `${window.location.origin}/`;
 }
 
 export function getDiscordLoginUrl(): string {
+  if (typeof window === "undefined") return "#"; // SSR-safe placeholder
   const params = new URLSearchParams({
     client_id: DISCORD_CLIENT_ID,
     redirect_uri: redirectUri(),
