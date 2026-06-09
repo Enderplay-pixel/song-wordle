@@ -1364,6 +1364,13 @@ export const songs: Song[] = [
     searchTerms: ["pool song 2.0", "pool song", "leif", "julien bam", "julian bam"],
   },
 
+  // ── POP 2000-2019 ─────────────────────────────────────────────────────────
+  { id: "pop-bad-romance", title: "Bad Romance", artist: "Lady Gaga", youtubeId: "NlK9u6a69Dg", startOffset: 0, category: "Pop 2000-2019", searchTerms: ["bad romance", "lady gaga"] },
+  { id: "pop-toxic", title: "Toxic", artist: "Britney Spears", youtubeId: "tVdr_JWmnsA", startOffset: 0, category: "Pop 2000-2019", searchTerms: ["toxic", "britney spears"] },
+  { id: "pop-umbrella", title: "Umbrella", artist: "Rihanna", youtubeId: "xXD5tltX9Pg", startOffset: 0, category: "Pop 2000-2019", searchTerms: ["umbrella", "rihanna", "jay-z"] },
+  { id: "pop-rolling-deep", title: "Rolling in the Deep", artist: "Adele", youtubeId: "WMg4GaJd3Fw", startOffset: 0, category: "Pop 2000-2019", searchTerms: ["rolling in the deep", "adele"] },
+  { id: "pop-viva-la-vida", title: "Viva la Vida", artist: "Coldplay", youtubeId: "dvgZkm1xWPE", startOffset: 0, category: "Pop 2000-2019", searchTerms: ["viva la vida", "coldplay"] },
+
   // ── FREI.WILD ─────────────────────────────────────────────────────────────
   { id: "fw-wahre-werte", title: "Wahre Werte", artist: "Frei.Wild", youtubeId: "Ki_D9JjmdzE", startOffset: 0, searchTerms: ["wahre werte", "frei.wild", "frei wild", "freiwild"] },
   { id: "fw-suedtirol", title: "Südtirol", artist: "Frei.Wild", youtubeId: "GSFpDPnKWMU", startOffset: 0, searchTerms: ["südtirol", "suedtirol", "frei.wild", "frei wild", "freiwild"] },
