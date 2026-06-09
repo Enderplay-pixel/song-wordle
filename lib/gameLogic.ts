@@ -14,6 +14,12 @@ export interface GameState {
   hintsRevealed: boolean;
 }
 
+export interface CategoryStat {
+  played: number;
+  won: number;
+  totalWinGuesses: number; // sum of attempts used in won games (for avg)
+}
+
 export interface Stats {
   gamesPlayed: number;
   gamesWon: number;
@@ -21,6 +27,50 @@ export interface Stats {
   maxStreak: number;
   guessDistribution: number[];
   lastPlayedDate: string | null;
+  categoryStats?: Record<string, CategoryStat>;
+}
+
+// Which category the player performs best in: highest win rate among
+// categories with enough games; ties broken by fewer avg guesses.
+export function getBestCategory(
+  stats: Stats,
+  minGames = 3
+): { category: string; winRate: number; played: number; avgGuesses: number } | null {
+  const cs = stats.categoryStats;
+  if (!cs) return null;
+  let best: { category: string; winRate: number; played: number; avgGuesses: number } | null = null;
+  for (const [category, s] of Object.entries(cs)) {
+    if (s.played < minGames) continue;
+    const winRate = s.won / s.played;
+    const avgGuesses = s.won > 0 ? s.totalWinGuesses / s.won : 99;
+    if (
+      !best ||
+      winRate > best.winRate ||
+      (winRate === best.winRate && avgGuesses < best.avgGuesses)
+    ) {
+      best = { category, winRate, played: s.played, avgGuesses };
+    }
+  }
+  return best;
+}
+
+// Record a finished game against each of the song's categories.
+export function recordCategoryResult(
+  stats: Stats,
+  categories: string[],
+  won: boolean,
+  winGuesses: number
+): Stats {
+  const cs: Record<string, CategoryStat> = { ...(stats.categoryStats ?? {}) };
+  for (const c of categories) {
+    const prev = cs[c] ?? { played: 0, won: 0, totalWinGuesses: 0 };
+    cs[c] = {
+      played: prev.played + 1,
+      won: prev.won + (won ? 1 : 0),
+      totalWinGuesses: prev.totalWinGuesses + (won ? winGuesses : 0),
+    };
+  }
+  return { ...stats, categoryStats: cs };
 }
 
 function seededRandom(seed: number): number {
@@ -82,13 +132,19 @@ export function fuzzySearch(query: string, pool?: Song[]): Song[] {
   });
 }
 
-export function loadStats(): Stats {
+// Stats are stored per identity: a logged-in Discord user gets their own
+// stats keyed by id; otherwise the shared "guest" stats are used.
+function statsKey(userId?: string | null): string {
+  return userId ? `songWordle_stats_${userId}` : "songWordle_stats";
+}
+
+export function loadStats(userId?: string | null): Stats {
   if (typeof window === "undefined") {
     return defaultStats();
   }
   try {
-    const raw = localStorage.getItem("songWordle_stats");
-    return raw ? JSON.parse(raw) : defaultStats();
+    const raw = localStorage.getItem(statsKey(userId));
+    return raw ? { ...defaultStats(), ...JSON.parse(raw) } : defaultStats();
   } catch {
     return defaultStats();
   }
@@ -102,12 +158,13 @@ function defaultStats(): Stats {
     maxStreak: 0,
     guessDistribution: [0, 0, 0, 0, 0, 0],
     lastPlayedDate: null,
+    categoryStats: {},
   };
 }
 
-export function saveStats(stats: Stats): void {
+export function saveStats(stats: Stats, userId?: string | null): void {
   if (typeof window === "undefined") return;
-  localStorage.setItem("songWordle_stats", JSON.stringify(stats));
+  localStorage.setItem(statsKey(userId), JSON.stringify(stats));
 }
 
 export function loadGameState(): Partial<GameState> | null {

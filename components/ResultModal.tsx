@@ -4,16 +4,24 @@ import { useEffect, useRef } from "react";
 import { Song } from "@/data/songs";
 import { Stats, GuessResult, buildShareText, getDayNumber } from "@/lib/gameLogic";
 
+interface BestCategory {
+  category: string;
+  winRate: number;
+  played: number;
+  avgGuesses: number;
+}
+
 interface ResultModalProps {
   won: boolean;
   song: Song;
   guesses: GuessResult[];
   stats: Stats;
+  bestCategory?: BestCategory | null;
   onClose: () => void;
   onNewSong?: () => void;
 }
 
-export default function ResultModal({ won, song, guesses, stats, onClose, onNewSong }: ResultModalProps) {
+export default function ResultModal({ won, song, guesses, stats, bestCategory, onClose, onNewSong }: ResultModalProps) {
   const shareRef = useRef<HTMLButtonElement>(null);
 
   const shareText = buildShareText(guesses, won, getDayNumber());
@@ -88,6 +96,22 @@ export default function ResultModal({ won, song, guesses, stats, onClose, onNewS
             </div>
           ))}
         </div>
+
+        {/* Best category — personalized */}
+        {bestCategory && (
+          <div className="mb-5 rounded-xl p-3 bg-gradient-to-br from-red-950/60 to-zinc-900 border border-red-900/50">
+            <div className="text-xs text-zinc-500 font-mono mb-1">⭐ DEINE STÄRKSTE KATEGORIE</div>
+            <div className="flex items-baseline justify-between">
+              <span className="text-white font-bold text-lg">{bestCategory.category}</span>
+              <span className="text-green-400 font-mono text-sm font-bold">
+                {Math.round(bestCategory.winRate * 100)}% gewonnen
+              </span>
+            </div>
+            <div className="text-xs text-zinc-500 font-mono mt-0.5">
+              {bestCategory.played} Spiele · ⌀ {bestCategory.avgGuesses.toFixed(1)} Versuche pro Sieg
+            </div>
+          </div>
+        )}
 
         {/* Guess distribution */}
         <div className="mb-5">
